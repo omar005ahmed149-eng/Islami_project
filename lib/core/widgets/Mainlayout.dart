@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/manging/color_manger.dart';
-import 'package:islami/core/widgets/azkar.dart';
+import 'package:islami/core/manging/pics_manager.dart';
+import 'package:islami/core/widgets/time.dart';
 import 'package:islami/core/widgets/hadeth.dart';
 import 'package:islami/core/widgets/quran.dart';
 import 'package:islami/core/widgets/radio.dart';
@@ -18,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
     Quran(),
     Hadeth(),
     Radio1(),
-    Azkar(),
+    Time(),
     Sebha()
   ];
   int selectedindex=0;
@@ -27,14 +28,14 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       backgroundColor: ColorManger.black,
       body:tabs[selectedindex],
-      bottomNavigationBar: BottomNavigationBar(items: [
-      BottomNavigationBarItem(icon: Icon(Icons.book),label: ""),
-      BottomNavigationBarItem(icon: Icon(Icons.book),label: ""),
-      BottomNavigationBarItem(icon: Icon(Icons.book),label: ""),
-      BottomNavigationBarItem(icon: Icon(Icons.book),label: ""),
-      BottomNavigationBarItem(icon: Icon(Icons.book),label: ""),
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+      BottomNavigationBarItem(icon: _Activation(IconManager.quran,selectedindex==0),label: "Quran"),
+      BottomNavigationBarItem(icon:  _Activation(IconManager.hadeth,selectedindex==1),label: "Hadeth"),
+      BottomNavigationBarItem(icon:  _Activation(IconManager.sebha,selectedindex==2),label: "Sebha"),
+      BottomNavigationBarItem(icon:  _Activation(IconManager.radio,selectedindex==3),label: "Radio"),
+      BottomNavigationBarItem(icon:  _Activation(IconManager.time,selectedindex==4),label: "Time"),
       ],
-      backgroundColor: ColorManger.gold,
         onTap:(index){
         selectedindex=index;
         setState(() {
@@ -42,13 +43,20 @@ class _MainScreenState extends State<MainScreen> {
         });
         },
         currentIndex: selectedindex,
-        type: BottomNavigationBarType.fixed,
-        selectedItemColor: ColorManger.white,
-        unselectedItemColor: ColorManger.black,
-        showSelectedLabels: true,
-        showUnselectedLabels: false,
+
 
       )
     );
   }
+Widget _Activation(String iconName , bool isSelected){
+    return isSelected ? Container(
+      decoration: BoxDecoration(
+        color: ColorManger.black.withOpacity(0.6),
+        borderRadius: BorderRadius.circular(25)
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 6.0,horizontal: 20),
+        child:ImageIcon(AssetImage(iconName)))):ImageIcon(AssetImage(iconName)
+    );
+}
 }

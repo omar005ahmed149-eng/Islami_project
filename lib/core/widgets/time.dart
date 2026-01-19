@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class Azkar extends StatelessWidget {
-  const Azkar({super.key});
+class Time extends StatelessWidget {
+  const Time({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.green,
-    );;
+    );
   }
 }

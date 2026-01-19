@@ -1,0 +1,16 @@
+flutter_native_splash:
+
+  color: "#202020"  ##====================================[REQUIRED]==========
+
+  image:                lib/core/images/splash.png
+
+  branding:      lib/core/images/Group 29.png
+
+  fullscreen: true
+  android_12:
+    color: "#202020"  ##====================================[REQUIRED]==========
+
+    image:                lib/core/images/splash.png
+
+    branding:      lib/core/images/Group 29.png
+
