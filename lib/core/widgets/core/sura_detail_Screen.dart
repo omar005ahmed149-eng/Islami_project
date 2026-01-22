@@ -1,19 +1,81 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:islami/core/manging/color_manger.dart';
+import 'package:islami/core/manging/pics_manager.dart';
 import 'package:islami/core/manging/sura%20model.dart';
+import 'package:islami/core/widgets/core/Sura_Details_arguments.dart';
+import 'package:islami/core/widgets/core/Sura_item.dart';
 
-class SuraDetailScreen extends StatelessWidget {
-  const SuraDetailScreen({super.key});
+class SuraDetailScreen extends StatefulWidget {
+  SuraDetailScreen({super.key});
 
   @override
+  State<SuraDetailScreen> createState() => _SuraDetailScreenState();
+}
+
+class _SuraDetailScreenState extends State<SuraDetailScreen> {
+List<String> verses =[];
+late SuraDetailsArguments arguments;
+
+
+  @override
+  void didChangeDependencies() {
+  super.didChangeDependencies();
+  arguments= ModalRoute.of(context)?.settings.arguments as SuraDetailsArguments;
+loadSuraContent(arguments.index);
+  }
+  @override
   Widget build(BuildContext context) {
-    SuraModel suraModel= ModalRoute.of(context)?.settings.arguments as SuraModel;
     return Scaffold(
       appBar: AppBar(
-        title: Text(suraModel.englishName),
+        title: Text(arguments.sura.englishName),
 
       ),
       backgroundColor: ColorManger.black,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(child: Image.asset(PicsManager.left_header)),
+                Expanded(child: Center(child: Text(arguments.sura.arabicName,
+                  style: TextStyle(fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: ColorManger.gold),))),
+                Expanded(child: Image.asset(PicsManager.right_header)),
+              ],
+            ),
+            Expanded(child: verses.isEmpty?
+            CircularProgressIndicator(color: ColorManger.gold,)
+                :ListView.builder(itemBuilder: (context, index)=>Container(
+              padding: EdgeInsets.symmetric(vertical:10 ),
+              margin: EdgeInsets.symmetric(vertical: 10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                border: Border.all(color: ColorManger.gold,width: 2)
+              ),
+                  child: Text(verses[index],
+                              style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: ColorManger.gold),textDirection: TextDirection.rtl,),
+                ))
+            )
+          ],
+        ),
+      ),
     );
+  }
+
+    Future<void> loadSuraContent(int index) async {
+
+      String filePath = "lib/core/files/Suras/${index+1}.txt";
+      String filecontent = await rootBundle.loadString(filePath);
+      List<String> SuraContent = filecontent.trim().split("\n");
+      for(int i=0;i<SuraContent.length;i++){
+        SuraContent [i]+="[${i+1}]";
+      }
+      Future.delayed(Duration(seconds: 1));
+      verses= SuraContent;
+      setState(() {});
   }
 }

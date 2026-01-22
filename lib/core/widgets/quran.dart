@@ -61,7 +61,7 @@ class Quran extends StatelessWidget {
                 padding: EdgeInsetsGeometry.zero,
                 itemCount: 114,
                 separatorBuilder: (context,index)=> Container(color: ColorManger.white,height: 2,width: double.infinity, margin: EdgeInsets.symmetric(vertical: 10,horizontal: 50),),
-                itemBuilder: (context,index)=>SuraItem(suraModel: SuraModel.suraList[index],),
+                itemBuilder: (context,index)=>SuraItem(suraModel: SuraModel.suraList[index],index: index,),
 
               ),
             ),

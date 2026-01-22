@@ -10,6 +10,10 @@ abstract class Themedata {
             fontWeight: FontWeight.bold,
             color: ColorManger.gold
         ),
+        iconTheme: IconThemeData(
+          color:ColorManger.gold,
+
+        ),
         centerTitle: true,
 
       ),

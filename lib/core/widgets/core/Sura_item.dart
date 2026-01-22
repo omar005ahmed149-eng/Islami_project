@@ -3,23 +3,17 @@ import 'package:islami/core/manging/color_manger.dart';
 import 'package:islami/core/manging/pics_manager.dart';
 import 'package:islami/core/manging/routes_manger.dart';
 import 'package:islami/core/manging/sura%20model.dart';
+import 'package:islami/core/widgets/core/Sura_Details_arguments.dart';
 
-class SuraItem extends StatefulWidget {
-   SuraItem({super.key,required this.suraModel});
+class SuraItem extends StatelessWidget {
+   SuraItem({super.key,required this.suraModel,required this.index });
    SuraModel suraModel;
-
-  @override
-  State<SuraItem> createState() => _SuraItemState();
-}
-
-class _SuraItemState extends State<SuraItem> {
-  @override
+   int index;
+   @override
   Widget build(BuildContext context) {
     return  InkWell(
       onTap: (){
-        Navigator.pushNamed(context, RoutesManger.suraDetails,arguments: widget.suraModel);
-        setState(() {
-        });
+        Navigator.pushNamed(context, RoutesManger.suraDetails,arguments: SuraDetailsArguments(sura:suraModel, index: index));
       },
       child: Row(
 
@@ -28,20 +22,20 @@ class _SuraItemState extends State<SuraItem> {
             alignment: Alignment.center,
             children: [
               Image(image: AssetImage(PicsManager.SuraIndex)),
-              Text(widget.suraModel.suraIndex.toString(),style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: ColorManger.white),)
+              Text(suraModel.suraIndex.toString(),style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: ColorManger.white),)
             ],
           ),
           SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(widget.suraModel.englishName,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: ColorManger.white),),
-              Text("${widget.suraModel.ayaCount} Verses",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: ColorManger.white),),
+              Text(suraModel.englishName,style: TextStyle(fontSize: 22 ,fontWeight: FontWeight.bold,color: ColorManger.white),),
+              Text("${suraModel.ayaCount} Verses",style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: ColorManger.white),),
 
             ],
           ),
           Spacer(),
-          Text(widget.suraModel.arabicName,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: ColorManger.white),),
+          Text(suraModel.arabicName,style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: ColorManger.white),),
 
 
         ],

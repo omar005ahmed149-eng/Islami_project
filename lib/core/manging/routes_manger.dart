@@ -16,8 +16,6 @@ abstract class RoutesManger {
   static const String sebha ="/sebha";
   static const String radio ="/radio";
   static const String time ="/time";
-  // static const String quran ="/splash";
-  // static const String quran ="/splash";
 static Map<String,WidgetBuilder> routes ={
   quran:(context)=> Quran(),
   hadeth:(context)=> Hadeth(),

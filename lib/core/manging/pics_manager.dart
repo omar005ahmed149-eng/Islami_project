@@ -3,10 +3,12 @@ abstract class PicsManager {
   static const String background ="${_base}Background.png";
   static const String header ="${_base}img_header.png";
   static const String footer ="${_base}Mask group.png";
-  static const String left_header ="${_base}Mask group (1).png";
-  static const String right_header ="${_base}Mask group (2).png";
+  static const String right_header ="${_base}Mask group (1).png";
+  static const String left_header ="${_base}Mask group (2).png";
   static const String Sura ="${_base}img_most_recent.png";
   static const String SuraIndex ="${_base}Group.png";
+  static const String background1 ="${_base}Background (2).png";
+  static const String Hadeeth_background ="${_base}HadithCardBackGround 1.png";
 }
 
 abstract class IconManager{

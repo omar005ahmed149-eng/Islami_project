@@ -13,7 +13,7 @@ class SuraModel {
 
   static List<SuraModel> suraList = [
     SuraModel(suraIndex: 1,
-        arabicName: "الفاتحه",
+        arabicName: "الفاتحة",
         englishName: "Al-Fatiha",
         ayaCount: 7),
     SuraModel(suraIndex: 2,

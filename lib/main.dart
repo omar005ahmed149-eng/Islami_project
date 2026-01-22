@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:islami/core/manging/color_manger.dart';
+import 'package:islami/core/manging/routes_manger.dart';
 import 'package:islami/core/themedata.dart';
 import 'package:islami/core/widgets/Mainlayout.dart';
+import 'package:islami/core/widgets/core/sura_detail_Screen.dart';
 
 void main() {
   runApp(const Islami());
@@ -15,7 +16,10 @@ class Islami extends StatelessWidget {
     return MaterialApp(
 debugShowCheckedModeBanner: false ,
      home: MainScreen(),
-      theme:Themedata.light
+      theme:Themedata.light,
+      routes: {
+  RoutesManger.suraDetails:(context)=>SuraDetailScreen()
+    },
     );
   }
 }
