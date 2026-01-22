@@ -6,14 +6,13 @@ import 'package:islami/core/manging/sura%20model.dart';
 import 'package:islami/core/widgets/core/Sura_Details_arguments.dart';
 
 class SuraItem extends StatelessWidget {
-   SuraItem({super.key,required this.suraModel,required this.index });
+   SuraItem({super.key,required this.suraModel, });
    SuraModel suraModel;
-   int index;
    @override
   Widget build(BuildContext context) {
     return  InkWell(
       onTap: (){
-        Navigator.pushNamed(context, RoutesManger.suraDetails,arguments: SuraDetailsArguments(sura:suraModel, index: index));
+        Navigator.pushNamed(context, RoutesManger.suraDetails,arguments: SuraModel);
       },
       child: Row(
 

@@ -4,10 +4,20 @@ import 'package:islami/core/manging/color_manger.dart';
 import 'package:islami/core/manging/pics_manager.dart';
 import 'package:islami/core/manging/sura%20model.dart';
 import 'package:islami/core/widgets/core/MostRecently.dart';
+import 'package:islami/core/widgets/core/Sura_Details_arguments.dart';
 import 'package:islami/core/widgets/core/Sura_item.dart';
 
-class Quran extends StatelessWidget {
-  const Quran({super.key});
+class Quran extends StatefulWidget {
+   Quran({super.key});
+
+  @override
+  State<Quran> createState() => _QuranState();
+}
+
+class _QuranState extends State<Quran> {
+   List<SuraModel> filteredList = SuraModel.suraList;
+
+   late SuraModel sura;
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +36,9 @@ class Quran extends StatelessWidget {
             SizedBox(height: 20),
             TextField(
               style: TextStyle(fontSize: 16,color: ColorManger.white),
+              onChanged: (text){
+                SearchByName(text) ;
+              },
               decoration: InputDecoration(
                 labelText:"Sura Name",
                 labelStyle: TextStyle(fontSize: 16,fontWeight: FontWeight.bold,color: ColorManger.white),
@@ -59,13 +72,25 @@ class Quran extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                 padding: EdgeInsetsGeometry.zero,
-                itemCount: 114,
+                itemCount: filteredList.length,
                 separatorBuilder: (context,index)=> Container(color: ColorManger.white,height: 2,width: double.infinity, margin: EdgeInsets.symmetric(vertical: 10,horizontal: 50),),
-                itemBuilder: (context,index)=>SuraItem(suraModel: SuraModel.suraList[index],index: index,),
+                itemBuilder: (context,index)=>SuraItem(suraModel: filteredList[index] ),
 
               ),
             ),
             ])
     );
+  }
+
+  void SearchByName(String text) {
+     if(text.isEmpty) {
+       filteredList=SuraModel.suraList;
+     }else {
+       filteredList=filteredList.where((sura)=>sura.arabicName.contains(text)||
+          sura.englishName.toLowerCase().contains(text)).toList();
+     }
+      setState(() {
+
+      });
   }
 }

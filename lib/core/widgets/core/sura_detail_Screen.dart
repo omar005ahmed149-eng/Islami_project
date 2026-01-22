@@ -15,20 +15,20 @@ class SuraDetailScreen extends StatefulWidget {
 
 class _SuraDetailScreenState extends State<SuraDetailScreen> {
 List<String> verses =[];
-late SuraDetailsArguments arguments;
+late SuraModel arguments;
 
 
   @override
   void didChangeDependencies() {
   super.didChangeDependencies();
-  arguments= ModalRoute.of(context)?.settings.arguments as SuraDetailsArguments;
-loadSuraContent(arguments.index);
+  arguments= ModalRoute.of(context)?.settings.arguments as SuraModel;
+loadSuraContent(arguments.suraIndex);
   }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(arguments.sura.englishName),
+        title: Text(arguments.englishName),
 
       ),
       backgroundColor: ColorManger.black,
@@ -40,7 +40,7 @@ loadSuraContent(arguments.index);
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Expanded(child: Image.asset(PicsManager.left_header)),
-                Expanded(child: Center(child: Text(arguments.sura.arabicName,
+                Expanded(child: Center(child: Text(arguments.arabicName,
                   style: TextStyle(fontSize: 22,
                       fontWeight: FontWeight.bold,
                       color: ColorManger.gold),))),
@@ -72,7 +72,7 @@ loadSuraContent(arguments.index);
       String filecontent = await rootBundle.loadString(filePath);
       List<String> SuraContent = filecontent.trim().split("\n");
       for(int i=0;i<SuraContent.length;i++){
-        SuraContent [i]+="[${i+1}]";
+        SuraContent [i]+="[${i}]";
       }
       Future.delayed(Duration(seconds: 1));
       verses= SuraContent;
