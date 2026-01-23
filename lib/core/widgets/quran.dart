@@ -84,10 +84,10 @@ class _QuranState extends State<Quran> {
 
   void SearchByName(String text) {
      if(text.isEmpty) {
-       filteredList=SuraModel.suraList;
+       filteredList=List.from(SuraModel.suraList);
      }else {
-       filteredList=filteredList.where((sura)=>sura.arabicName.contains(text)||
-          sura.englishName.toLowerCase().contains(text)).toList();
+       filteredList=SuraModel.suraList.where((sura)=>sura.arabicName.contains(text)||
+          sura.englishName.toLowerCase().contains(text.toLowerCase())).toList();
      }
       setState(() {
 

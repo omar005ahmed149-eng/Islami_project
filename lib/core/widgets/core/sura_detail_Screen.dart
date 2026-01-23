@@ -56,7 +56,7 @@ loadSuraContent(arguments.suraIndex);
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(color: ColorManger.gold,width: 2)
               ),
-                  child: Text(verses[index],
+                  child: Text("${verses[index]}",
                               style: TextStyle(fontSize: 22,fontWeight: FontWeight.bold,color: ColorManger.gold),textDirection: TextDirection.rtl,),
                 ))
             )
@@ -68,11 +68,16 @@ loadSuraContent(arguments.suraIndex);
 
     Future<void> loadSuraContent(int index) async {
 
-      String filePath = "lib/core/files/Suras/${index+1}.txt";
+      String filePath = "lib/core/files/Suras/${index}.txt";
       String filecontent = await rootBundle.loadString(filePath);
-      List<String> SuraContent = filecontent.trim().split("\n");
+      List<String> SuraContent = filecontent.trim().split("\n").where((line) => line.trim().isNotEmpty)
+          .toList();
       for(int i=0;i<SuraContent.length;i++){
-        SuraContent [i]+="[${i}]";
+        SuraContent [i]+="[${i+1}]";
+        if(i>=SuraContent.length) {
+          break;
+        }
+
       }
       Future.delayed(Duration(seconds: 1));
       verses= SuraContent;
