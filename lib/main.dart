@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:islami/core/manging/routes_manger.dart';
 import 'package:islami/core/themedata.dart';
 import 'package:islami/core/widgets/Mainlayout.dart';
+import 'package:islami/core/widgets/On_Boarding_Screen.dart';
 import 'package:islami/core/widgets/core/sura_detail_Screen.dart';
+import 'package:islami/core/widgets/sebha.dart';
 
 void main() {
   runApp(const Islami());
@@ -15,10 +17,10 @@ class Islami extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 debugShowCheckedModeBanner: false ,
-     home: MainScreen(),
+     home: OnBoardingScreen(),
       theme:Themedata.light,
       routes: {
-  RoutesManger.suraDetails:(context)=>SuraDetailScreen()
+  RoutesManger.suraDetails:(context)=>SuraDetailScreen(),
     },
     );
   }

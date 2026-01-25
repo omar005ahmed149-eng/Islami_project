@@ -18,9 +18,9 @@ class _MainScreenState extends State<MainScreen> {
   List<Widget> tabs=[
     Quran(),
     Hadeth(),
+    Sebha(),
     Radio1(),
     Time(),
-    Sebha()
   ];
   int selectedindex=0;
   @override
