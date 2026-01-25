@@ -12,7 +12,7 @@ abstract class PicsManager {
   static const String Sebha_Background ="${_base}taj-mahal-agra-india 1.png";
   static const String Sebha_Head ="${_base}Group 37.png";
   static const String Sebha_body ="${_base}SebhaBody 1.png";
-
+  static const String Radio_Item_Footer="${_base}Mask group (3).png";
   static const String Radio_background ="${_base}Background (1).png";
   static const String On_Boarding_Screen1 ="${_base}Frame 3.png";
   static const String On_Boarding_Screen2 ="${_base}Frame 3 (1).png";

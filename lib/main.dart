@@ -17,7 +17,7 @@ class Islami extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 debugShowCheckedModeBanner: false ,
-     home: OnBoardingScreen(),
+     home: MainScreen(),
       theme:Themedata.light,
       routes: {
   RoutesManger.suraDetails:(context)=>SuraDetailScreen(),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/manging/color_manger.dart';
 import 'package:islami/core/manging/pics_manager.dart';
+import 'package:islami/core/widgets/core/Radio_Item.dart';
 
 class Radio1 extends StatelessWidget {
   const Radio1({super.key});
@@ -20,7 +21,10 @@ class Radio1 extends StatelessWidget {
           child:  Column(
             children: [
               Image.asset(PicsManager.header),
-              
+              SizedBox(height: 20,),
+              Expanded(child: ListView.separated(itemBuilder: (context,index)=>RadioItems(),
+                  separatorBuilder: (context,index)=>SizedBox(height: 20,),
+                  itemCount: 20))
             ],
           ),
         ),
