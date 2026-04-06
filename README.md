@@ -1,16 +1,28 @@
-# islami
+# 🕌 Islami App
 
-A new Flutter project.
+A Flutter application that provides essential Islamic features in a clean and user-friendly interface.
 
-## Getting Started
+## ✨ Features
+- 📖 Quran reading
+- 📜 Hadith browsing
+- 📿 Sebha (Tasbeeh counter)
+- 📻 Islamic radio
+- 🕒 Prayer/time features
+- 📱 Smooth navigation between screens
 
-This project is a starting point for a Flutter application.
+## 💾 Data Handling
+- Local storage for offline access
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠️ Tech Stack
+- Flutter & Dart
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🎯 Architecture
+- Clean and maintainable structure
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🚧 Status
+Currently under development with continuous improvements.
+
+## 📌 Future Improvements
+- Add notifications (prayer reminders)
+- Enhance UI/UX
+- Add more content and features
